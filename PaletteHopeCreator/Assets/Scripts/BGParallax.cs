@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BGParallax : MonoBehaviour
 {
-    public float animationSpeed = 1f;
+    public float animationSpeed = 0.05f;
     private MeshRenderer meshRenderer;
 
     void Awake()
