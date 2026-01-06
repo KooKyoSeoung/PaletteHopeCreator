@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -11,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
 
     private int score;
+    private List<Pipes> activePipes = new List<Pipes>();
 
     void Awake()
     {
@@ -30,9 +30,26 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         player.enabled = true;
 
-        Pipes[] pipes = FindObjectsOfType<Pipes>();
-        for (int i = 0; i < pipes.Length; ++i)
-            Destroy(pipes[i].gameObject);
+        if (player != null)
+            player.ApplyCharacterData();
+
+        for (int i = activePipes.Count - 1; i >= 0; --i)
+        {
+            if (activePipes[i] != null)
+                Destroy(activePipes[i].gameObject);
+        }
+        activePipes.Clear();
+    }
+
+    public void RegisterPipe(Pipes pipe)
+    {
+        if (pipe != null && !activePipes.Contains(pipe))
+            activePipes.Add(pipe);
+    }
+
+    public void UnregisterPipe(Pipes pipe)
+    {
+        activePipes.Remove(pipe);
     }
 
     private void Pause()
@@ -51,7 +68,8 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        score++;
+        float multiplier = player != null ? player.GetScoreMultiplier() : 1.0f;
+        score += Mathf.RoundToInt(1 * multiplier);
         scoreText.text = score.ToString();
     }
 }

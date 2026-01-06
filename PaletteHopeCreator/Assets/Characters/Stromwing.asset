@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a2631ab2872141871f3aa78f9915c, type: 3}
+  m_Name: Stromwing
+  m_EditorClassIdentifier: 
+  characterName: Stormwing
+  rarity: 2
+  characterSprite: {fileID: 21300000, guid: e9f43a4c6ed23054ebd37e92f6b37b5a, type: 3}
+  animationSprites:
+  - {fileID: 21300000, guid: e9f43a4c6ed23054ebd37e92f6b37b5a, type: 3}
+  - {fileID: 21300000, guid: b34f5fa7395450a4480d98cbaf31c3a6, type: 3}
+  - {fileID: 21300000, guid: 21fcbb1e6f1be624eb3adc26c5dfd503, type: 3}
+  gravity: -9.8
+  strength: 5
+  scoreMultiplier: 1
+  slowMotionMultiplier: 1
+  characterColor: {r: 1, g: 1, b: 1, a: 1}
