@@ -132,7 +132,7 @@ public class GachaSystem : MonoBehaviour
     public void GiveTestGachaPoints(int amount = 1000)
     {
         AddGachaPoints(amount);
-        Debug.Log($"테스트 가챠 포인트 {amount}개 지급됨. 현재 포인트: {GetGachaPoints()}");
+        Debug.Log($"가챠 포인트 {amount}개 지급됨. 현재 포인트: {GetGachaPoints()}");
     }
 }
 

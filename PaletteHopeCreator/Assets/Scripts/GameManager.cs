@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreText;
     public GameObject playButton;
     public GameObject gameOver;
+    public Button openInventoryButton;
 
     private int score;
     private List<Pipes> activePipes = new List<Pipes>();
@@ -19,6 +21,18 @@ public class GameManager : MonoBehaviour
         Pause();
     }
 
+    void Start()
+    {
+        if (openInventoryButton != null)
+        {
+            openInventoryButton.onClick.AddListener(() => {
+                CharacterInventoryUI inventoryUI = FindObjectOfType<CharacterInventoryUI>();
+                
+                inventoryUI.OpenPanel();
+            });
+        }
+    }
+
     public void Play()
     {
         score = 0;
@@ -26,6 +40,7 @@ public class GameManager : MonoBehaviour
 
         gameOver.SetActive(false);
         playButton.SetActive(false);
+        openInventoryButton.gameObject.SetActive(false);
 
         Time.timeScale = 1f;
         player.enabled = true;
@@ -62,6 +77,13 @@ public class GameManager : MonoBehaviour
     {
         gameOver.SetActive(true);
         playButton.SetActive(true);
+        openInventoryButton.gameObject.SetActive(true);
+
+        GachaSystem gacha = GachaSystem.Instance;
+        if (gacha != null)
+        {
+            gacha.GiveTestGachaPoints(score * 10);
+        }
 
         Pause();
     }

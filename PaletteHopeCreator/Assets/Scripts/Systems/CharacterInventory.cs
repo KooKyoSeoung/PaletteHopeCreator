@@ -103,7 +103,6 @@ public class CharacterInventory : MonoBehaviour
         
         if (string.IsNullOrEmpty(selectedName) && characterDatabase != null && characterDatabase.allCharacters.Count > 0)
         {
-            // 기본 캐릭터 선택
             selectedName = characterDatabase.allCharacters[0].characterName;
             SetSelectedCharacter(selectedName);
         }
