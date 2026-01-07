@@ -52,7 +52,6 @@ public class CharacterInventory : MonoBehaviour
         }
         else
         {
-            // 처음 시작 시 기본 캐릭터 하나 제공
             if (characterDatabase != null && characterDatabase.allCharacters.Count > 0)
             {
                 AddCharacter(characterDatabase.allCharacters[0].characterName);

@@ -6,16 +6,12 @@ using UnityEngine;
 /// </summary>
 public class TestHelper : MonoBehaviour
 {
-    [Header("Test Shortcuts")]
-    [Tooltip("G 키: 가챠 포인트 1000개 지급")]
     public bool enableGKey = true;
     
-    [Tooltip("R 키: 모든 데이터 리셋")]
     public bool enableRKey = true;
 
     void Update()
     {
-        // G 키: 가챠 포인트 지급
         if (enableGKey && Input.GetKeyDown(KeyCode.G))
         {
             GachaSystem gacha = GachaSystem.Instance;

@@ -17,18 +17,18 @@ public class GachaSystem : MonoBehaviour
     private const string GACHA_POINT_KEY = "GachaPoints";
     
     [Header("Gacha Settings")]
-    public int gachaCost = 100; // 가챠 1회 가격
+    public int gachaCost = 100;
     public CharacterDatabase characterDatabase;
 
     [Header("Rarity Rates")]
     [Range(0f, 100f)]
-    public float commonRate = 70f;      // 일반 확률
+    public float commonRate = 70f;
     [Range(0f, 100f)]
-    public float rareRate = 20f;        // 레어 확률
+    public float rareRate = 20f;
     [Range(0f, 100f)]
-    public float epicRate = 8f;         // 에픽 확률
+    public float epicRate = 8f;
     [Range(0f, 100f)]
-    public float legendaryRate = 2f;    // 레전더리 확률
+    public float legendaryRate = 2f;
 
     void Awake()
     {
@@ -82,13 +82,10 @@ public class GachaSystem : MonoBehaviour
 
         SpendGachaPoints(gachaCost);
 
-        // 확률에 따라 희귀도 결정
         CharacterRarity rarity = GetRandomRarity();
         
-        // 해당 희귀도의 캐릭터 중 랜덤 선택
         CharacterData character = characterDatabase.GetRandomCharacterByRarity(rarity);
 
-        // 만약 해당 희귀도의 캐릭터가 없으면 랜덤 캐릭터 선택
         if (character == null)
         {
             character = characterDatabase.GetRandomCharacter();
@@ -96,7 +93,6 @@ public class GachaSystem : MonoBehaviour
 
         if (character != null)
         {
-            // 보유 목록에 추가
             CharacterInventory inventory = CharacterInventory.Instance;
             if (inventory != null)
             {
