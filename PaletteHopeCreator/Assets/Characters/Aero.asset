@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 01cca8bc5604dc04a8b0e7ca300f8479, type: 3}
   - {fileID: 21300000, guid: e950dbd36be6f6246965afafd3278017, type: 3}
   - {fileID: 21300000, guid: 0196fa95476ec4d4a9d7e7c4e0ef39ed, type: 3}
-  gravity: -9.8
-  strength: 5
+  gravity: -9.3
+  strength: 4.8
   scoreMultiplier: 1
   slowMotionMultiplier: 1
   characterColor: {r: 1, g: 1, b: 1, a: 1}
